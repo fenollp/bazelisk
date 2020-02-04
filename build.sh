@@ -29,7 +29,6 @@ go build
 cp bazel-bin/bazelisk-darwin_amd64 bin/bazelisk-darwin-amd64
 cp bazel-bin/bazelisk-linux_amd64 bin/bazelisk-linux-amd64
 cp bazel-bin/bazelisk-windows_amd64.exe bin/bazelisk-windows-amd64.exe
-rm -f bazelisk
 
 ### Build release artifacts using `go build`.
 # GOOS=linux GOARCH=amd64 go build -o bin/bazelisk-linux-amd64
@@ -45,5 +44,5 @@ echo
 # Non-googlers: you should run this script with NPM_REGISTRY=https://registry.npmjs.org
 readonly REGISTRY=${NPM_REGISTRY:-https://wombat-dressing-room.appspot.com}
 echo "After testing, publish to NPM via these commands:"
-echo "$ npm config set registry https://wombat-dressing-room.appspot.com"
+echo "$ npm login --registry https://wombat-dressing-room.appspot.com"
 echo "$ ./bazelisk run --config=release //:npm_package.publish -- --access=public --tag latest --registry $REGISTRY"
