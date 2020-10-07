@@ -196,6 +196,7 @@ func maybeDownload(bazeliskHome, url, filename, description string) ([]byte, err
 func resolveLatestVersion(bazeliskHome, bazelFork string, offset int) (string, error) {
 	url := fmt.Sprintf("https://api.github.com/repos/%s/bazel/releases", bazelFork)
 	releasesJSON, err := maybeDownload(bazeliskHome, url, bazelFork+"-releases.json", "list of Bazel releases from github.com/"+bazelFork)
+	// HERE
 	if err != nil {
 		return "", fmt.Errorf("could not get releases from github.com/%s/bazel: %v", bazelFork, err)
 	}
